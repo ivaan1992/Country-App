@@ -17,6 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
     CountriesModule,
     SharedModule
   ],
+  exports: [
+    SharedModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
