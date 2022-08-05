@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-country',
@@ -6,12 +7,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./country.component.css']
 })
 export class CountryComponent {
-  term: string = 'Hello World!';
+  term: string = '';
+  error: boolean = false;
 
-  constructor() { }
+  constructor( private countryService: CountryService ) { }
 
   search() {
-    alert('testing method');
+    this.error = false;
+    console.log(this.term);
+
+    this.countryService.searchCountry( this.term )
+    .subscribe( (ans) => {
+      console.log( ans );
+      }, ( err => {
+        this.error = true;
+        console.log()
+      })
+    );
   }
 
 }

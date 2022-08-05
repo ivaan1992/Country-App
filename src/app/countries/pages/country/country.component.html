@@ -15,8 +15,9 @@
 </div>
 
 <hr>
-<div class="alert alert-danger">
-    We couldn't find anything with... :(
+<div *ngIf="error"
+    class="alert alert-danger">
+    We couldn't find anything with {{ term }} :(
 </div>
 
 
