@@ -1,1 +1,15 @@
-<p>see-country works!</p>
+<div
+
+  class="alert alert-info">
+  Please wait...
+</div>
+
+<ng-template #divCountry>
+  <div class="row">
+    <div class="col-12">
+      <h1>Country: <small>{{ country.name.official }}</small></h1>
+    </div>
+  </div>
+</ng-template>
+
+*ngIf="!country; else divCountry"

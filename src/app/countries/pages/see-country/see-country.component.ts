@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 import { CountryService } from '../../services/country.service';
-import { Idd } from '../../interfaces/country.interface';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'app-see-country',
@@ -12,20 +12,19 @@ import { Idd } from '../../interfaces/country.interface';
 })
 export class SeeCountryComponent implements OnInit {
 
+  country!: Country;
+
   constructor(
     private activatedRouter: ActivatedRoute,
     private countryService: CountryService
   ) { }
 
   ngOnInit(): void {
-
     this.activatedRouter.params
     .pipe(
-      switchMap( ({id}) => this.countryService.getCountryId( id ) )
+      switchMap( ({ id }) => this.countryService.getCountryId( id ) ),
+      tap( console.log )
     )
-    .subscribe( resp => {
-      console.log(resp);
-    });
+    .subscribe( country => this.country = country );
   }
-
 }
