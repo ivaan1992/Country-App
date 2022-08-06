@@ -1,4 +1,4 @@
-<h2>By Country</h2>
+<h2>Search Country By Name</h2>
 <hr>
 
 <div class="row">
@@ -7,7 +7,6 @@
       (onEnter)="search( $event )"
       (onDebounce)="suggestions( $event )"
     >
-
     </app-country-input>
   </div>
 </div>
@@ -19,10 +18,12 @@
 </div>
 
 
-<div *ngIf="countries.length > 0"      class="row">
+<div *ngIf="countries.length > 0"
+  class="row">
   <div class="col">
 
-    <app-country-table [countries]="countries" ></app-country-table>
+    <app-country-table [countries]="countries" >
+    </app-country-table>
 
   </div>
 </div>

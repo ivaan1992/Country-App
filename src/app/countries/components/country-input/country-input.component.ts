@@ -28,7 +28,6 @@ export class CountryInputComponent implements OnInit {
 
   search() {
     this.onEnter.emit( this.term );
-
   }
 
   keyPressed() {
