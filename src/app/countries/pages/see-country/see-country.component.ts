@@ -25,6 +25,9 @@ export class SeeCountryComponent implements OnInit {
       switchMap( ({ id }) => this.countryService.getCountryId( id ) ),
       tap( console.log )
     )
-    .subscribe( country => this.country = country );
+    .subscribe( country => {
+      this.country = country[0];
+    } );
+
   }
 }
