@@ -32,7 +32,8 @@ export class CountryService {
   }
 
   searchRegion( region: string ) {
-    const url = `${this.api}/regionalbloc/${ region }`
+    const url = `${this.api}/region/${ region }`
+
     return this.http.get<Country[]>( url );
   }
 }
