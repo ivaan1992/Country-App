@@ -1,1 +1,23 @@
 <h2>Search Country By Region</h2>
+<small>You are in {{ regionActive | titlecase}} </small>
+<hr>
+
+<h5>Choose the region</h5>
+
+<div class="row">
+  <div class="col">
+
+    <button *ngFor="let region of regions"
+      class="btn btn-primary"
+      (click)="activeBtn( region )"
+      (click)="activeRegion( region )">
+
+      {{ region | titlecase }}
+    </button>
+
+
+    <app-country-table [countries]="countries" >
+    </app-country-table>
+
+  </div>
+</div>
