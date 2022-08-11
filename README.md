@@ -22,6 +22,9 @@ can search a country by name, capital or region.
 - Typescript
 - HTML & CSS
 
+##  💻Live Demo
+
+You can check my project <a href="https://the-awesome-ivaan1992-site.netlify.app/">Here</a>
 ## Getting Started
 
 To get a local copy, run these simple steps in your terminal:
