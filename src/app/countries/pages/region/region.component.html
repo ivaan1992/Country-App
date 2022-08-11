@@ -1,29 +1,37 @@
-<h2>Search Country By Region</h2>
-<small>You are in {{ regionActive | titlecase}} </small>
-<hr>
+<div class="animate__animated animate__fadeIn animate__faster">
 
-<h5>Choose the region</h5>
+  <h2>Search Country By Region
+    <small>{{ regionActive | titlecase}}</small>
+  </h2>
+  <hr>
 
-<div class="row">
-  <div class="col">
+  <h5>Choose the region</h5>
 
-    <button *ngFor="let region of regions"
-      class="btn btn-primary"
-      (click)="activeBtn( region )"
-      (click)="activeRegion( region )">
+  <div class="row">
+    <div class="col">
 
-      {{ region | titlecase }}
-    </button>
+      <button *ngFor="let region of regions"
+        class="btn btn-primary"
+        (click)="activeBtn( region )"
+        (click)="activeRegion( region )">
 
+        {{ region | titlecase }}
+      </button>
+
+    </div>
+  </div>
+
+  <div *ngIf="countries.length > 0"
+    class="row">
+    <div class="col">
+
+      <app-country-table [countries]="countries" >
+      </app-country-table>
+
+    </div>
   </div>
 </div>
 
-<div *ngIf="countries.length > 0"
-  class="row">
-  <div class="col">
 
-    <app-country-table [countries]="countries" >
-    </app-country-table>
 
-  </div>
-</div>
+
